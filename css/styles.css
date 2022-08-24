@@ -188,3 +188,27 @@ a.custom-card:hover {
 .checked {
   color: orange;
 }
+
+.login {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+  align-items: center;
+  text-align: center;
+}
+
+.login input {
+  width: 100%;
+  border-radius: 25;
+  margin-bottom: 10px;
+}
+
+.login buttonw-100 btn btn-lg btn-primary {
+  margin-top: 15px;
+  width: 50%;
+}
+
+.container img {
+  margin-left: 10%;
+}
