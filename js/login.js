@@ -19,3 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         login();
     });
 });
+
+function googleLogin() {
+    location.href="index.html";
+}
