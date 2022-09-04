@@ -140,4 +140,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
         showCategoriesList();
     });
+
+    let p = document.getElementById('user');
+    p.innerHTML = localStorage.getItem('user');
 });

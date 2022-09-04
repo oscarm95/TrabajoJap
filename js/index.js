@@ -1,36 +1,26 @@
-document.addEventListener("DOMContentLoaded", function(){
-    let userName = localStorage.getItem("user");
+function login() {
+    let userName = document.getElementById('email').value;
+    let password = document.getElementById('password').value;
+    
 
-    document.getElementById("autos").addEventListener("click", function() {
-        localStorage.setItem("catID", 101);
-        window.location = "products.html"
-    });
-    document.getElementById("juguetes").addEventListener("click", function() {
-        localStorage.setItem("catID", 102);
-        window.location = "products.html"
-    });
-    document.getElementById("muebles").addEventListener("click", function() {
-        localStorage.setItem("catID", 103);
-        window.location = "products.html"
-    });
 
-    
-    document.getElementById("bye").addEventListener("click",()=>{
-        logOut();
-    });
-    
-    
-    if (userName==null){
-        alert("Inicia sesion para continuar");
-        location.href="login.html";
+    if( userName != 0 && password != 0){
+        localStorage.setItem('user', userName);
+        location.href="main.html";
     } else {
-        document.getElementById("email").innerHTML = userName;
+        alert('Usuario y contraseña requeridos');
     };
+};
 
+
+document.addEventListener('DOMContentLoaded', () => {
+    let button = document.getElementById('submit');
+    button.addEventListener('click', (e) => {
+        e.preventDefault();
+        login();
+    });
 });
 
-function logOut() {
-    localStorage.removeItem("user");
-    alert("Nos vemos pronto");
-    location.href="login.html";
-};
+function googleLogin() {
+    location.href="main.html";
+}
