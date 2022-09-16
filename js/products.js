@@ -24,6 +24,11 @@ fetch(productss)
         BringProducts();
     });
 
+    function setItemID(id) {
+        localStorage.setItem("itemID", id);
+        window.location = "product-info.html"
+    }
+
 function BringProducts(){
     
     let productList = document.getElementById("products");
@@ -33,7 +38,7 @@ function BringProducts(){
         if (((minPrice == undefined) || (minPrice != undefined && parseInt(products.cost) >= minPrice)) &&
             ((maxPrice == undefined) || (maxPrice != undefined && parseInt(products.cost) <= maxPrice))){
             productList.innerHTML += `
-                <div class="list-group-item list-group-item-action">
+                <div onclick="setItemID(${products.id})" class="list-group-item list-group-item-action">
                     <div class="row">
                         <div class="col-3">
                             <img src="${products.image}" class="img-thumbnail">
@@ -51,7 +56,7 @@ function BringProducts(){
                         </div>       
                     </div>
                 </div>`
-            console.log(productList)};
+            };
     };
 };
 

@@ -10,6 +10,8 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link href="css/product-info.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -38,8 +40,37 @@
   </nav>
   <main>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <div id='product'></div>
+    </div>
+    <div class="comentBox">
+      <div id='comentariesBox'></div>
+    </div>
+    <div class="userComment">
+      <div class="container">
+        <form action="">
+          <div class="row">
+            <div class="col">
+              <p id="user"></p>
+            </div>
+            <div class="col">
+               <select id="stars">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+               </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <textarea id="form-control" class="form-control" rows="10" placeholder="Your Reivew" name="review" id="review"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <button id="addBtn">Enviar</button>
+          </div>
+        </form> 
       </div>
     </div>
   </main>
