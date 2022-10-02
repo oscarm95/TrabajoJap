@@ -24,7 +24,7 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav w-100 justify-content-between">
           <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
+            <a class="nav-link active" href="main.html">Inicio</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="categories.html">Categorías</a>
@@ -32,8 +32,17 @@
           <li class="nav-item">
             <a class="nav-link" href="sell.html">Vender</a>
           </li>
-          <li class="nav-item">
-          </li>
+          <div class="btn-group">
+            <button type="button" class="btn btn-warning dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <p id="user"></p>
+            </button>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="cart.html">Carrito</a></li>
+              <li><a class="dropdown-item" href="my-profile.html">Perfil</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#" id="bye">Cerrar sesion</a></li>
+            </ul>
+          </div>
         </ul>
       </div>
     </div>
@@ -43,7 +52,9 @@
       <div id='product'></div>
     </div>
     <div class="comentBox">
-      <div id='comentariesBox'></div>
+      <div id='comentariesBox'>
+        <h2>Comentarios recientes:</h2>
+      </div>
     </div>
     <div class="userComment">
       <div class="container">

@@ -1,3 +1,6 @@
+let p = document.getElementById('user');
+p.innerHTML = localStorage.getItem('user');
+
 const ORDER_ASC_BY_NAME = "AZ";
 const ORDER_DESC_BY_NAME = "ZA";
 const ORDER_BY_PROD_COUNT = "Cant.";
@@ -141,6 +144,16 @@ document.addEventListener("DOMContentLoaded", function(e){
         showCategoriesList();
     });
 
-    let p = document.getElementById('user');
-    p.innerHTML = localStorage.getItem('user');
 });
+
+
+document.getElementById("bye").addEventListener("click",()=>{
+    logOut();
+});
+
+
+function logOut() {
+    localStorage.removeItem("user");
+    alert("Nos vemos pronto");
+    location.href="index.html";
+};

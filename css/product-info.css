@@ -6,3 +6,11 @@
     color: orange;
 };
 
+.card-img-top{
+    max-width: fit-content;
+    overflow: hidden;
+}
+
+.card-img-top img{
+    object-fit: fill;
+}

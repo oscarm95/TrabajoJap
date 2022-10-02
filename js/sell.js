@@ -1,3 +1,6 @@
+let p = document.getElementById('user');
+p.innerHTML = localStorage.getItem('user');
+
 let productCost = 0;
 let productCount = 0;
 let comissionPercentage = 0.13;
@@ -147,3 +150,14 @@ document.addEventListener("DOMContentLoaded", function(e){
         }
     });
 });
+
+document.getElementById("bye").addEventListener("click",()=>{
+    logOut();
+});
+
+
+function logOut() {
+    localStorage.removeItem("user");
+    alert("Nos vemos pronto");
+    location.href="index.html";
+};

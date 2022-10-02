@@ -35,7 +35,10 @@ fetch(comentUrl)
 
 
 
-
+function setItemID(id) {
+    localStorage.setItem("itemID", id);
+    window.location = "product-info.html"
+}
 
 fetch(url)
 .then(response => response.json())
@@ -73,11 +76,33 @@ fetch(url)
                 <div class="sold">
                     <p>${data.soldCount} Vendidos</p>
                 </div>
+                
         </div>
+        <div class="related">
+            <h2>Productos Relacionados</h2>
+            <div class="card" style="width: 18rem;" onclick="setItemID(${data.relatedProducts[0].id})">
+                <div>
+                    <img class="card-img-top" src="${data.relatedProducts[0].image}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">${data.relatedProducts[0].name}</h5>
+                    </div>  
+                </div>
+            </div >
+            <div class="card" style="width: 18rem;" onclick="setItemID(${data.relatedProducts[1].id})">
+                <div>
+                    <img class="card-img-top" src="${data.relatedProducts[1].image}" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">${data.relatedProducts[1].name}</h5>
+                    </div>   
+                </div>
+            </div>
+        </div>
+        
        
         
     </div>
     `
+    
 });
 
 let input = document.getElementById('form-control');
@@ -105,9 +130,10 @@ let stars = document.getElementById('stars');
     else if(rate == 4){ starCount = `<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span></span><span class="fa fa-star checked"></span></span><span class="fa fa-star checked"></span></span><span class="fa fa-star noChequed"></span>`}
     else if(rate == 5){ starCount = `<span class="fa fa-star checked"></span><span class="fa fa-star checked"></span></span><span class="fa fa-star checked"></span></span><span class="fa fa-star checked"></span></span><span class="fa fa-star checked"></span>`}
     coment.innerHTML += `
+
     
     <div style='margin-left:50%'class="container">
-        <div>Comentarios recientes:</div>
+        
         <div class="row">
             <div class="col">
                 <div>${userName} - ${dateAndTime} - ${starCount}</div>
@@ -125,4 +151,13 @@ let stars = document.getElementById('stars');
     stars.value = "";
  });   
 
+ document.getElementById("bye").addEventListener("click",()=>{
+    logOut();
+});
 
+
+ function logOut() {
+    localStorage.removeItem("user");
+    alert("Nos vemos pronto");
+    location.href="index.html";
+};
