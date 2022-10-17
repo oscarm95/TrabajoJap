@@ -43,6 +43,7 @@ function setItemID(id) {
 fetch(url)
 .then(response => response.json())
 .then(data => {
+    console.log(data)
 
     let item = document.getElementById('product')
     item.innerHTML = `
@@ -76,7 +77,7 @@ fetch(url)
                 <div class="sold">
                     <p>${data.soldCount} Vendidos</p>
                 </div>
-                
+                <button id="buy-button" type="button" class="btn btn-success">Comprar</button>
         </div>
         <div class="related">
             <h2>Productos Relacionados</h2>
@@ -101,7 +102,32 @@ fetch(url)
        
         
     </div>
-    `
+    ` 
+    
+
+
+    
+    
+
+    
+    
+
+
+    document.getElementById("buy-button").addEventListener("click",()=>{
+            
+        let productsLS = localStorage.getItem('products');
+        let productList;
+        const itemssss = {name: data.name, img: data.images[0], price: data.cost, currency: data.currency, quantity: 1};
+        if (productsLS) {
+            productList = JSON.parse(productsLS);        
+        } else {
+            productList = [];
+        }
+        productList.push(itemssss);
+        localStorage.setItem('products', JSON.stringify(productList));
+            
+            
+    });
     
 });
 

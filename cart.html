@@ -45,10 +45,32 @@
     </div>
   </nav>
   <main>
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
-      </div>
+    <div class="container" id="cart">
+    </div>
+    <div   class="lscontainer" id="ls-cart">
+      
+    </div>
+
+    <div class="total-count">
+      <div class="totals-shipping">
+        <div class="shipping">
+          <p><strong>Tipo de envío</strong></p><hr>
+          <input name="shipping" id="premium" type="radio" value="premium"/> Premium: 2 a 5 días (15%)<br>
+          <input name="shipping" id="express" type="radio" value="express"/> Express: 5 a 8 días (7%)<br>
+          <input name="shipping" id="standard" type="radio" value="standard"/> Estandar: 12 a 15 días (5%)<br>
+          <form action="" method="post">
+            <strong>Calle:</strong> <input type="text" name="street" id="">
+            <strong>Número:</strong> <input type="text" name="street" id=""><br>
+            <br>
+            <strong>Esquina:</strong> <input type="text" name="street" id="">
+          </form>
+        </div><hr>
+        <div class="totals-item">
+          <label><strong>Subtotal: </strong></label>
+          <div class="totals-value" id="cart-subtotal"></div>
+        </div>
+      </div>  
+      <button class="checkout">Comprar</button>
     </div>
   </main>
   <footer class="text-muted">
