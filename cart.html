@@ -47,30 +47,80 @@
   <main>
     <div class="container" id="cart">
     </div>
-    <div   class="lscontainer" id="ls-cart">
-      
-    </div>
-
     <div class="total-count">
       <div class="totals-shipping">
         <div class="shipping">
-          <p><strong>Tipo de envío</strong></p><hr>
-          <input name="shipping" id="premium" type="radio" value="premium"/> Premium: 2 a 5 días (15%)<br>
-          <input name="shipping" id="express" type="radio" value="express"/> Express: 5 a 8 días (7%)<br>
-          <input name="shipping" id="standard" type="radio" value="standard"/> Estandar: 12 a 15 días (5%)<br>
-          <form action="" method="post">
-            <strong>Calle:</strong> <input type="text" name="street" id="">
-            <strong>Número:</strong> <input type="text" name="street" id=""><br>
-            <br>
-            <strong>Esquina:</strong> <input type="text" name="street" id="">
+          
+          <form action="#" method="get" class="row mt-4 needs-validation" novalidate>
+            <p><strong>Tipo de envío</strong></p><hr>
+            <div>
+              <input required name="shipping" id="premium" type="radio" value="premium"/> Premium: 2 a 5 días (15%)<br>
+              <input required name="shipping" id="express" type="radio" value="express"/> Express: 5 a 8 días (7%)<br>
+              <input required name="shipping" id="standard" type="radio" value="standard"/> Estandar: 12 a 15 días (5%)<br>
+              <div class="valid-feedback">
+                Campo Valido!
+              </div>
+              <div class="invalid-feedback">
+                Ingresa Tipo de envio!
+              </div>
+            </div>
+            
+            <div class="col">
+              <h1 class="mb-3">Registro</h1>
+              <hr class="my-4">
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <label for="nombre" class="form-label ">Calle</label>
+                  <input required type="text" class="form-control" id="street">
+                  <div class="valid-feedback">
+                    Campo Valido!
+                  </div>
+                  <div class="invalid-feedback">
+                    Ingresa un nombre de calle valido!
+                  </div>
+                </div>
+    
+                <div class="col-sm-6">
+                  <label for="apellido" class="form-label">Número de puerta</label>
+                  <input required type="text" class="form-control" id="door-number">
+                  <div class="valid-feedback">
+                    Campo Valido!
+                  </div>
+                  <div class="invalid-feedback">
+                    Ingresa un número de puerta valido!
+                  </div>
+                </div>
+    
+                <div class="col-12">
+                  <label for="email" class="form-label">Esquina</label>
+                  <input required type="text" class="form-control" id="corner">
+                  <div class="valid-feedback">
+                    Campo Valido!
+                  </div>
+                  <div class="invalid-feedback">
+                    Ingresa una esquina valida!
+                  </div>
+                </div>
+                
+                <button class="btn btn-primary" type="submit" id="buy-button">Verificar dirección</button>
+    
+    
+              </div>
+            </div>
           </form>
         </div><hr>
         <div class="totals-item">
+          <h2>Costos:</h2>
           <label><strong>Subtotal: </strong></label>
-          <div class="totals-value" id="cart-subtotal"></div>
+          <div><span id="product-payment"></span></div>
+          <label><strong>Costo de envio: </strong></label>
+          <div><span id="send-cost"></span></div>
+          <label><strong>Total: </strong></label>
+          <div><span id="total-payment"></span></div>
         </div>
       </div>  
-      <button class="checkout">Comprar</button>
+      
+
     </div>
   </main>
   <footer class="text-muted">
@@ -81,6 +131,45 @@
       <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a> -
         2022</p>
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+    </div>
+      <div class="modal fade" id="modalPayment" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5">Formas de pago</h1>
+              <hr>
+            </div>
+            <div id="paymentOptions">
+              <h2>Select Payment Method</h2>
+            <ul>
+              <form action="" method="get" class="validation">
+                <li>
+                  <div> 
+                    <span class="radio"><input type="radio" name="method" id="card" ></span>
+                    <span class="credit-card">Tarjeta de credito</span><hr>
+                    <p>Número de tarjeta</p><input id="card-name" type="text">
+                    <p>Código de seg:</p><input id="card-code" type="text">
+                    <p>Vencimiento</p><input id="card-date" type="month">                  
+                  </div>
+                </li>
+                  <br>
+                <li>
+                  <div>
+                    <span class="radio"><input type="radio" name="method" id="bank" >
+                    </span>
+                    <span class="bank">Transferencia bancaria</span><hr>
+                    <p>Número de cuenta</p><input id="bank-input" type="text">
+                  </div>
+                </li> <br>
+              </form>
+              
+              <button type="submit" id="finish-buy" disabled>Finalizar compra</button>
+            </ul>
+            </div>      
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </footer>
   <div id="spinner-wrapper">
