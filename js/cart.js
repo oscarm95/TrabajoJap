@@ -39,6 +39,7 @@ function seeModal() {
     
 })()
 
+//habilitar y deshabilitar pagos
 let bank = document.getElementById("bank");
 let card = document.getElementById("card");
 
@@ -58,13 +59,15 @@ bank.addEventListener("click",()=>{
     
 })
 
-
+//boton comprar
 let buyButton = document.getElementById("finish-buy");
 buyButton.addEventListener("click",()=>{
     alert("Haz realizado tu compra con exito!");
     window.location = "cart.html";
 })
 
+
+//traer productos del JSON
 let url = `https://japceibal.github.io/emercado-api/user_cart/25801.json`;
 
 fetch(url)
@@ -104,7 +107,7 @@ fetch(url)
     let parsedItems = JSON.parse(itemsLS);
     console.log(parsedItems)
 
-
+    //Traer productos de LocalStorage
     for (let i = 0; i < parsedItems.length; i++) {
 
         let parsedItem = parsedItems[i];
